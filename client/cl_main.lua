@@ -71,3 +71,13 @@ RegisterNetEvent('polyzonehelper:createCircleZone')
 AddEventHandler('polyzonehelper:createCircleZone', function(name, ...)
   addCircleZone(name, ...)
 end)
+
+exports('DeletePolyZone', function(name)
+  for k, v in pairs(comboZone.zones) do
+    if v.name == name then 
+      local removedZone = comboZone:RemoveZone(v.name)
+      removedZone:destroy()
+      print('[polyzonehelper]: '..v.name..' named polyzone has been deleted')
+    end
+  end
+end)
